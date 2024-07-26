@@ -1,0 +1,86 @@
+@property --gradient-angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.intro {
+    min-height: calc(100vh - 80px);
+}
+
+.intro-img {
+    animation: intro-img-animate 3.5s linear infinite;
+}
+
+.intro-img:hover {
+    animation-play-state: paused;
+}
+
+@keyframes intro-img-animate {
+    0% {
+        box-shadow: 0 0 50px #B923E1;
+        border: 4px solid #B923E1;
+        border-radius: 40% 60% 56% 44% / 53% 46% 54% 47%;
+    }
+
+    50% {
+        box-shadow: 0 0 50px #DA7C25;
+        border: 4px solid #DA7C25;
+        border-radius: 64% 36% 27% 73% / 46% 39% 61% 54%;
+    }
+
+    100% {
+        box-shadow: 0 0 50px #B923E1;
+        border: 4px solid #B923E1;
+        border-radius: 40% 60% 56% 44% / 53% 46% 54% 47%;
+    }
+}
+
+
+.intro-btn-1 {
+    background: linear-gradient(267deg, #DA7C25 10%, #B923E1 100%);
+}
+
+.intro-btn-2 {
+    position: relative;
+    background: black;
+    z-index: 0.5;
+}
+
+.intro-btn-2::after {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    background: conic-gradient(from var(--gradient-angle),
+            #B923E1,
+            #DA7C25);
+    border-radius: inherit;
+    animation: rotation 2s linear infinite;
+    z-index: -1;
+}
+
+@keyframes rotation {
+    0% {
+        --gradient-angle: 0deg;
+    }
+
+    100% {
+        --gradient-angle: 360deg;
+    }
+}
+
+.style-h1 {
+    background: linear-gradient(267deg, #DA7C25 10%, #B923E1 100%);
+    background-clip: text;
+    color: transparent;
+}
+
+.social-btn::after {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(267deg, #DA7C25 10%, #B923E1 100%);
+    box-shadow: 0 0 10px #B923E1;
+    border-radius: inherit;
+    z-index: -1;
+}
